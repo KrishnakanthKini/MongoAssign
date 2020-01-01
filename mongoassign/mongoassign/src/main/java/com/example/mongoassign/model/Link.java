@@ -1,17 +1,26 @@
 package com.example.mongoassign.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 
 /**
  * A single link structure
  */
+
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T11:28:31.548Z")
-public class Link {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
+@Document
+public class Link   {
   @JsonProperty("rel")
   private String rel = null;
 
@@ -24,10 +33,13 @@ public class Link {
   }
 
   /**
-   * Relationship of the link. Current links include: * self: when requesting a single memberId * coverages: link to the member&#39;s coverages
+   * Relationship of the link. Current links include: * self: when requesting a single memberId * coverages: link to the member's coverages
    * @return rel
    **/
+
   @NotNull
+
+
   public String getRel() {
     return rel;
   }
@@ -42,10 +54,13 @@ public class Link {
   }
 
   /**
-   * The hyperlink reference to a resource. Examples: \&quot;https://api.horizonblue.com/v1/members/M3\&quot; \&quot;https://api.horizonblue.com/v1/members/M3/coverages\&quot;
+   * The hyperlink reference to a resource. Examples: \"https://api.horizonblue.com/v1/members/M3\" \"https://api.horizonblue.com/v1/members/M3/coverages\"
    * @return href
    **/
-//  @ApiModelProperty(required = true, value = "The hyperlink reference to a resource. Examples: \"https://api.horizonblue.com/v1/members/M3\" \"https://api.horizonblue.com/v1/members/M3/coverages\"")
+
+  @NotNull
+
+
   public String getHref() {
     return href;
   }
@@ -56,7 +71,7 @@ public class Link {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -73,7 +88,6 @@ public class Link {
     return Objects.hash(rel, href);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,11 +103,10 @@ public class Link {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  public String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }

@@ -1,44 +1,38 @@
 package com.example.mongoassign.model;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
 
+
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import javax.validation.constraints.*;
 
 /**
  * A single member record
  */
 
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-25:11:28.003+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
 
-
-@Document(collection = "Member")
 @NoArgsConstructor
+@AllArgsConstructor
+@Document
 public class Member   {
 
-  public Member(String memberId, String personId, String prefix, String firstName, String middleName, String lastName,
-                String suffix, String dob, String gender, String ssn, Boolean horizonEmployeeIndicator) {
-    super();
-    this.memberId = memberId;
-    this.personId = personId;
-    this.prefix = prefix;
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.suffix = suffix;
-    this.dob = dob;
-    this.gender = gender;
-    this.ssn = ssn;
-    this.horizonEmployeeIndicator = horizonEmployeeIndicator;
-  }
 
+  @Id
   @JsonProperty("memberId")
   private String memberId = null;
 
@@ -76,8 +70,6 @@ public class Member   {
   @JsonProperty("links")
   @Valid
   private List<Link> links = null;
-
-
 
   public Member memberId(String memberId) {
     this.memberId = memberId;
@@ -344,7 +336,7 @@ public class Member   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -396,7 +388,7 @@ public class Member   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  public String toIndentedString(Object o) {
+  public String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
